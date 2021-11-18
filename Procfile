@@ -1,1 +1,1 @@
-web:  bundle exec rake jobs:work
+web: npm install
