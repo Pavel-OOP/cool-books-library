@@ -6,6 +6,7 @@ const Book = require("../models/book")
 router.get("/", async (req, res) => {
   res.send('All Books')
 })
+
 // new book route
 router.get("/new", (req, res) => {
   res.send('New Book')
