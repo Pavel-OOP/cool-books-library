@@ -36,7 +36,6 @@ router.post("/", upload.single('cover'), async (req, res) => {
     coverImageName: fileName,
     description: req.body.description
   })
-  // To Do
   try{
     const newBook = await book.save()
     // res.redirect(`books/${newBook.id}`)
