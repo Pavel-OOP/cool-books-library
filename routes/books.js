@@ -41,6 +41,7 @@ router.post("/", upload.single('cover'), async (req, res) => {
     // res.redirect(`books/${newBook.id}`)
     res.redirect(`books`)
   }catch{
+    console.log("do we get here?")
     renderNewPage(res, book, true)
   }
 })
