@@ -82,7 +82,7 @@ async function renderNewPage(res, book, hasError = false){
       book: book
     }
     if (hasError) params.errorMessage = 'Error Creating Book'
-    res.render('books/new', params)
+      res.render('books/new', params)
   } catch {
     res.redirect('/books')
   }
@@ -91,7 +91,7 @@ async function renderNewPage(res, book, hasError = false){
 function saveCover(book, coverEncoded){
   if(coverEncoded == null) return 
   const cover = JSON.parse(coverEncoded)
-  if(coverEncoded != null && imageMimeTypes.includes(cover.mimetype)){
+  if(cover != null && imageMimeTypes.includes(cover.type)){
     book.coverImage = new Buffer.from(cover.data, 'base64')
     book.coverImageType = cover.type
   }
