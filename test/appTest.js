@@ -30,8 +30,6 @@ describe('Server API', () => {
         })
     })
 
-
-
     after(() => {
         process.exit()
     })
