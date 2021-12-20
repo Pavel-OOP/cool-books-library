@@ -14,7 +14,6 @@ const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 //   }
 // })
 
-
 //all books route
 router.get("/", async (req, res) => {
   let query = Book.find()
@@ -66,6 +65,26 @@ router.post("/", async (req, res) => {
   }
 })
 
+// Show Book Route
+router.get('/:id', async (req, res) => {
+  try {
+    const book = await Book.findById(req.params.id).populate('author').exec()
+    res.render('books/show', { book:book })
+  } catch {
+    res.redirect('/')
+  }
+})
+
+// Edit book route
+router.get("/new", async (req, res) => {
+  try{
+    const book = await Book.findById(req.params.id)
+    renderEditPage(res, book)
+  } catch {
+    res.redirect('/')
+  }
+})
+
 // function removeBookCover(fileName){
 //   fs.unlink(path.join(uploadPath, fileName), err => {
 //     if(err) {
@@ -88,6 +107,20 @@ async function renderNewPage(res, book, hasError = false){
   }
 }
 
+async function renderEditPage(res, book, hasError = false){
+  try {
+    const authors = await Author.find({})
+    const params = {
+      authors : authors,
+      book: book
+    }
+    if (hasError) params.errorMessage = 'Error Creating Book'
+      res.render('books/new', params)
+  } catch {
+    res.redirect('/books')
+  }
+}
+
 function saveCover(book, coverEncoded){
   if(coverEncoded == null) return 
   const cover = JSON.parse(coverEncoded)
@@ -95,7 +128,6 @@ function saveCover(book, coverEncoded){
     book.coverImage = new Buffer.from(cover.data, 'base64')
     book.coverImageType = cover.type
   }
-
 }
 
 module.exports = router
