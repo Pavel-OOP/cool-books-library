@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // Edit book route
-router.get("/new", async (req, res) => {
+router.get("/edit", async (req, res) => {
   try{
     const book = await Book.findById(req.params.id)
     renderEditPage(res, book)
@@ -90,6 +90,7 @@ async function renderFormPage(res, book, form, hasError = false){
       book: book
     }
     if (hasError) params.errorMessage = 'Error Creating Book'
+
       res.render(`books/${form}`, params)
   } catch {
     res.redirect('/books')
