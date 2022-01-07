@@ -65,7 +65,7 @@ router.get('/:id', async (req, res) => {
 })
 
 // Edit book route
-router.get("/edit", async (req, res) => {
+router.get("/:id/edit", async (req, res) => {
   try{
     const book = await Book.findById(req.params.id)
     renderEditPage(res, book)
