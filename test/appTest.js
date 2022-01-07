@@ -11,7 +11,7 @@ describe('Server API', () => {
     describe('GET tests for Authors', () => {
         it('It should be valid status', (done) => {
             chai.request(app)
-                .get('/authors')
+                .get('/authors/619ba25c3003267ecc4fb300/edit')
                 .end((err, res) => {
                     assert.equal(res.status, "200")
                     done()

@@ -74,14 +74,6 @@ router.get("/edit", async (req, res) => {
   }
 })
 
-async function renderNewPage(res, book, hasError = false){
-  renderFormPage(res, book, 'new', hasError)
-}
-
-async function renderEditPage(res, book, hasError = false){
- renderFormPage(res, book, 'edit', hasError)
-}
-
 async function renderFormPage(res, book, form, hasError = false){
   try {
     const authors = await Author.find({})
@@ -95,6 +87,14 @@ async function renderFormPage(res, book, form, hasError = false){
   } catch {
     res.redirect('/books')
   }
+}
+
+async function renderNewPage(res, book, hasError = false){
+  renderFormPage(res, book, 'new', hasError)
+}
+
+async function renderEditPage(res, book, hasError = false){
+ renderFormPage(res, book, 'edit', hasError)
 }
 
 function saveCover(book, coverEncoded){
