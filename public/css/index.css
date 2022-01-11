@@ -1,0 +1,21 @@
+body {
+    background-color: #ADD8E6;
+}
+
+h2{
+    position: absolute;
+    width: 100%;
+
+}
+div.nav{
+     position: relative;
+     overflow: hidden;
+     float: left;
+    width: 25%;
+}
+div{
+    position: static;
+}
+div.covers{
+    top:20%;
+}
