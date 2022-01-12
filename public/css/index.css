@@ -1,21 +1,42 @@
 body {
-    background-color: #ADD8E6;
+    background-color: #20B2AA;
 }
 
 h2{
+    margin-top: 5%;
+    margin-left: 2%;
     position: absolute;
     width: 100%;
-
+    resize: none;
+    font-family: Arial,sans-serif;
+    color: #ADD8E6;
 }
+
+nav a{
+    margin-left: 40%;
+    text-decoration: none;
+    font-size: 30px;
+    color:#E0FFFF;
+}
+
 div.nav{
+     margin-top: 2%;
      position: relative;
      overflow: hidden;
      float: left;
-    width: 25%;
+     width: 23%;
+     resize: none;
+
 }
-div{
-    position: static;
+div.nav li a{
+    font-size: 18px;
+    font-family: Arial,sans-serif;
+    text-decoration: none;
+    color: #87CEFA;
 }
+
 div.covers{
-    top:20%;
+    margin-top:10%;
+    resize: none;
+    margin-left: 2%;
 }
