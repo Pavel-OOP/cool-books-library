@@ -1,42 +1,81 @@
-body {
-    background-color: #20B2AA;
+@import "variables.css";
+
+
+body{
+    background: linear-gradient(to right, hsl(200, 100%, 8%), hsl(200, 100%, 16%));
+    height: 100%;
+    width: 100%;
+}
+
+label{
+    color: #0499ca;
+    font-weight: bold;
+    font-size: 30px
+}
+
+div.authors{
+    color: #0499ca;
+    font-weight: bold;
+    font-size: 20px
+    
 }
 
 h2{
-    margin-top: 5%;
-    margin-left: 2%;
-    position: absolute;
-    width: 100%;
-    resize: none;
     font-family: Arial,sans-serif;
-    color: #ADD8E6;
+    color: #0499ca;
+    font-size: 35px;
+}
+
+div label + div{
+    height: auto;
+    width: 200px;
+}
+
+nav{
+    text-align: center;
+    display: inline-block;
+    padding-top:5%;
+    width: 100%;
+}
+
+h1{
+    margin-top: -1%;
+    margin-bottom: 5%;
+    font-size: 50px;
+}
+
+nav ul li{
+    display: inline;
+    float: left;
+    margin-left:10%;
+    margin-right:9%;
+}
+
+li:last-child{
+    margin-right: 2% !important;
+}
+
+a{
+    text-decoration: none;
 }
 
 nav a{
-    margin-left: 40%;
     text-decoration: none;
-    font-size: 30px;
-    color:#E0FFFF;
+    color:#0aa5a5;
+    text-transform: uppercase;
+    font-weight: bold;
 }
 
-div.nav{
-     margin-top: 2%;
-     position: relative;
-     overflow: hidden;
-     float: left;
-     width: 23%;
-     resize: none;
-
-}
-div.nav li a{
+li a{
     font-size: 18px;
     font-family: Arial,sans-serif;
     text-decoration: none;
     color: #87CEFA;
 }
 
-div.covers{
-    margin-top:10%;
-    resize: none;
-    margin-left: 2%;
+div.covers img{
+    margin-left:3%;
+
+    height: 370px;
+    width: 250px;
 }
