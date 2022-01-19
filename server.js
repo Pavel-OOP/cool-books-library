@@ -52,8 +52,8 @@ const options = {
 }
 const specs = swaggerJsDoc(options)
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs))
-const bookSchema = require('./models/book')
-const bookModel = mongoose.model('Book', bookSchema.bookSchema)
+const Book = require('./models/book')
+const bookModel = mongoose.model('Book', Book.bookSchema)
 const swaggerSchema = mongooseToSwagger(bookModel)
 console.log(swaggerSchema)
 

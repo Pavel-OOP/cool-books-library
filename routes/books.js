@@ -73,11 +73,17 @@ router.get("/", async (req, res) => {
   try{
     const books = await query.exec()
     const isJSONResp = req.headers['postman-token']
-    const resp =  books.forEach((book) => {
-      {title: book.title}
-    })
+    const resp = {
+      status: "OK"
+    }
+    
+    const bookModel = mongoose.model('Book', Book.bookSchema)
+
+
+
     if(isJSONResp) {
-      res.json(resp)
+  // res.json(resp)
+      res.json(req.query)
     } else {
       res.render('books/index', {
       books: books,
