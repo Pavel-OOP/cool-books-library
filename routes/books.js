@@ -78,7 +78,7 @@ router.get("/", async (req, res) => {
     }
     
     const bookModel = await mongoose.model('Book', Book.bookSchema)
-    arr = []
+    arr = {}
     
     
 
