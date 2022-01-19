@@ -77,16 +77,16 @@ router.get("/", async (req, res) => {
       status: "OK"
     }
     
-    const bookModel = await mongoose.model('Book', Book.bookSchema)
-    arr = {}
     
+    arr = {}
+    const bookModel = await mongoose.model('Book', Book.bookSchema).find({}, (err, data) => 
+    {data.map(item=>
+    {arr.push({title: item.title})})
+     })
     
 
     if(isJSONResp) {
-      bookModel.find({}, (err, data) => 
-                       {data.map(item=>
-                       {arr.push({title: item.title})})
-      res.json(arr)})
+      res.json(arr)
     } else {
       res.render('books/index', {
       books: books,
