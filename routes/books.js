@@ -69,14 +69,14 @@ router.get("/", async (req, res) => {
   if (req.query.publishedAfter != null && req.query.publishedAfter != ''){
     query = query.gte('publishDate', req.query.publishedAfter)
   }
-  const params = req.params
+  
   try{
+    const isJSONResp = req.headers['postman-token']
     const resp = {status: "OK"}
     const books = await query.exec()
 
-    if(params.resp === 'json'){
+    if(isJSONResp){
       res.json(resp)
-      res.status("oooook")
     }else{
       res.render('books/index', {
       books: books,
