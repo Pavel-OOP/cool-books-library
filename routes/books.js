@@ -69,13 +69,20 @@ router.get("/", async (req, res) => {
   if (req.query.publishedAfter != null && req.query.publishedAfter != ''){
     query = query.gte('publishDate', req.query.publishedAfter)
   }
+  const jsonResp = req.headers['postman-token']
+  const responseOK = {status: OK}
 
   try{
     const books = await query.exec()
+
+    if(jsonResp){
+      res.json(responseOK)
+    }else{
     res.render('books/index', {
       books: books,
       searchOptions: req.query
     })
+  }
   }catch{
     res.redirect('/')
   }

@@ -52,11 +52,16 @@ nav ul li{
 }
 
 li:last-child{
-    margin-right: 2% !important;
+    margin-right: 0% !important;
+    padding-right: 0% !important;
 }
 
 a{
     text-decoration: none;
+}
+
+nav ul{
+    padding-bottom: 3%;
 }
 
 nav a{
