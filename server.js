@@ -59,7 +59,7 @@ console.log(swaggerSchema)
 // tests vvv
 arrs = []
 bookModel.find({}, (err, data) => {data.map(item=> {
-  arrs.push(item.title)
+  arrs.push({title: item.title})
 }) 
 console.log(arrs)})
 //tests ^^^
