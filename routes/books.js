@@ -73,7 +73,7 @@ router.get("/", async (req, res) => {
 
   try{
     const params = req.params
-    const resp = {status: 'OK'}
+    const resp = {status: "OK"}
     const books = await query.exec()
 
     if(params.resp === 'json'){
