@@ -81,7 +81,7 @@ router.get("/", async (req, res) => {
       res.json(resp)
     }else{
       res.render('books/index', {
-      books: books,
+      books: books._id,
       searchOptions: req.query
     })
   }
