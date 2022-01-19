@@ -73,7 +73,7 @@ router.get("/", async (req, res) => {
 
   try{
     const jsonResp = req.headers['postman-token']
-    const responseOK = {status: OK}
+    const responseOK = {status: "OK"}
     const books = await query.exec()
 
     if(jsonResp){
