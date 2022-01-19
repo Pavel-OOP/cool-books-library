@@ -74,8 +74,7 @@ router.get("/", async (req, res) => {
   try{
     const params = req.params
     const resp = {
-      status: "OK",
-      books: books
+      status: "OK"
     }
     const books = await query.exec()
 
