@@ -83,7 +83,7 @@ router.get("/", async (req, res) => {
 
     if(isJSONResp) {
   // res.json(resp)
-      res.json(req.query)
+      res.json(query)
     } else {
       res.render('books/index', {
       books: books,
