@@ -76,9 +76,17 @@ router.get("/", async (req, res) => {
     const resp = {
       status: "OK"
     }
+    
+    const bookModel = mongoose.model('Book', Book.bookSchema)
+    arr = []
+
+    
 
     if(isJSONResp) {
-      res.json(resp)
+      bookModel.find({}, (err, data) => {data.map(item => {
+        arr.push(item.title)
+      }) 
+      return res.json(arr)})
     } else {
       res.render('books/index', {
       books: books,
