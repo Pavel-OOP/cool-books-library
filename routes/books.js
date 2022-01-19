@@ -5,7 +5,58 @@ const Book = require("../models/book")
 
 const imageMimeTypes = ['image/jpeg', 'image/png', 'image/gif']
 
+/**
+ * @swagger
+ * components:
+ *  schemas:
+ *    Book:
+ *      type: object
+ *      required:
+ *        -title
+ *        -publishDate
+ *        -pageCount
+ *        -createdAt
+ *        -coverImage
+ *        -coverImageType
+ *        -author
+ *      properties:
+ *        title:
+ *          type: string
+ *        description:
+ *          type: string
+ *        publishDate:
+ *          type: string
+ *          format: date-time
+ *        pageCount:
+ *          type: number
+ *        createdAt:
+ *          type: string
+ *          format: date-time
+ *        coverImage:
+ *          type: buffer
+ *        coverImageType:
+ *          type: string
+ *        author:
+ *          type: string
+ *        id:
+ *          type: string
+ */
 
+/**
+ * @swagger
+ * /books:
+ *    get:
+ *      summary: Returns the list of all the books
+ *    responses:
+ *      200:
+ *        description: The list of the books
+ *        content:
+ *          application/json:
+ *            schema:
+ *              type: array
+ *              items:
+ *                $ref: '#/components/schemas/Book'
+ */
 //all books route
 router.get("/", async (req, res) => {
   let query = Book.find()

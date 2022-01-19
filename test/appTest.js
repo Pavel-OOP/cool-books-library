@@ -5,7 +5,6 @@ const {assert} = chai
 
 chai.use(chaiHttp)
 
-
 describe('Server API', () => {
 
     describe('GET tests for Authors', () => {

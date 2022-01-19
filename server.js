@@ -30,6 +30,34 @@ app.use('/', indexRouter)
 app.use('/authors', authorRouter)
 app.use('/books', bookRouter)
 
+
+const swaggerUI = require("swagger-ui-express")
+const swaggerJsDoc = require("swagger-jsdoc")
+const mongooseToSwagger = require("mongoose-to-swagger")
+const options = {
+  definition:{
+    openapi: "3.0.0",
+    info:{
+      title: "Library API",
+      versions: "1.0.0",
+      description: "A simple Express Library API"
+    },
+    server:[
+      {
+        url:"http://localhost:4000"
+      }
+    ]
+  },
+  apis: ["./routes/*.js"]
+}
+const specs = swaggerJsDoc(options)
+app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs))
+const bookSchema = require('./models/book')
+const bookModel = mongoose.model('Book', bookSchema.bookSchema)
+const swaggerSchema = mongooseToSwagger(bookModel)
+console.log(swaggerSchema)
+
+
 const server = app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
   });
