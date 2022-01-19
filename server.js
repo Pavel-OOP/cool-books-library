@@ -57,11 +57,12 @@ const bookModel = mongoose.model('Book', Book.bookSchema)
 const swaggerSchema = mongooseToSwagger(bookModel)
 console.log(swaggerSchema)
 // tests vvv
-arrs = []
-bookModel.find({}, (err, data) => {data.map(item=> {
-  arrs.push({title: item.title})
-}) 
-console.log(arrs)})
+arr = []
+    bookModel.find({}, (err, data) => 
+    {data.map(item=>
+    {arr.push({title: item.title})})
+    arr.forEach(items => {console.log(items)})})
+  
 //tests ^^^
 
 const server = app.listen(process.env.PORT || 3000, function(){
