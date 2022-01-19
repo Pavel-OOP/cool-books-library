@@ -69,9 +69,8 @@ router.get("/", async (req, res) => {
   if (req.query.publishedAfter != null && req.query.publishedAfter != ''){
     query = query.gte('publishDate', req.query.publishedAfter)
   }
-  
+  const params = req.params
   try{
-    const params = req.params
     const resp = {status: "OK"}
     const books = await query.exec()
 
