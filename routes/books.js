@@ -73,11 +73,10 @@ router.get("/", async (req, res) => {
   try{
     const books = await query.exec()
     const isJSONResp = req.headers['postman-token']
-    const resp = books.forEach((book) => {
-      book.title
+    const resp =  books.forEach((book) => {
+      {title: book.title}
     })
     if(isJSONResp) {
-      res.json({status: "OK"})
       res.json(resp)
     } else {
       res.render('books/index', {
