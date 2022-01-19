@@ -70,7 +70,6 @@ router.get("/", async (req, res) => {
     query = query.gte('publishDate', req.query.publishedAfter)
   }
   
-
   try{
     const params = req.params
     const resp = {status: "OK"}
@@ -78,6 +77,7 @@ router.get("/", async (req, res) => {
 
     if(params.resp === 'json'){
       res.json(resp)
+      res.status("oooook")
     }else{
       res.render('books/index', {
       books: books,
