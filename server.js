@@ -56,8 +56,13 @@ const Book = require('./models/book')
 const bookModel = mongoose.model('Book', Book.bookSchema)
 const swaggerSchema = mongooseToSwagger(bookModel)
 console.log(swaggerSchema)
-
-
+// tests vvv
+arrs = []
+bookModel.find({}, (err, data) => {data.map(item=> {
+  arrs.push(item.title)
+}) 
+console.log(arrs)})
+//tests ^^^
 
 const server = app.listen(process.env.PORT || 3000, function(){
     console.log("Express server listening on port %d in %s mode", this.address().port, app.settings.env);
