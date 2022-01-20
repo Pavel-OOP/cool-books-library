@@ -83,7 +83,8 @@ router.get("/", async (req, res) => {
     bookModel.find({}, (err, data) => 
     {data.map(item=>
     {arr.push({title: item.title})})
-    arr.forEach(items => {res.json(items)})})
+    arr.forEach(items => {
+      res.json(...items)})})
     } else {
       res.render('books/index', {
       books: books,
