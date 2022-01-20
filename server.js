@@ -57,10 +57,8 @@ const swaggerSchema = mongooseToSwagger(Book)
 console.log(swaggerSchema)
 // tests vvv
 arr = []
-    Book.find({}, (err, data) => 
-    {data.find(item => {
-      console.log({"title" : item.title})
-    })})
+     Book.find({}, (err, data) => 
+    {data.map(item => {console.log(item.title)})})
   
 //tests ^^^
 
