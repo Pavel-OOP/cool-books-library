@@ -53,15 +53,14 @@ const options = {
 const specs = swaggerJsDoc(options)
 app.use("/api-docs", swaggerUI.serve, swaggerUI.setup(specs))
 const Book = require('./models/book')
-const bookModel = mongoose.model('Book', Book.bookSchema)
-const swaggerSchema = mongooseToSwagger(bookModel)
+const swaggerSchema = mongooseToSwagger(Book)
 console.log(swaggerSchema)
 // tests vvv
 arr = []
-    bookModel.find({}, (err, data) => 
-    {data.map(item=>
-    {arr.push({title: item.title})})
-    arr.forEach(items => {console.log(items)})})
+    Book.find({}, (err, data) => 
+    {data.find(item => {
+      console.log({"title" : item.title})
+    })})
   
 //tests ^^^
 

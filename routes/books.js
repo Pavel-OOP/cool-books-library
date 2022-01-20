@@ -69,23 +69,21 @@ router.get("/", async (req, res) => {
   if (req.query.publishedAfter != null && req.query.publishedAfter != ''){
     query = query.gte('publishDate', req.query.publishedAfter)
   }
-  
-  try{
-    const books = await query.exec()
+  const books = await query.exec()
     const isJSONResp = req.headers['postman-token']
     const resp = {
       status: "OK"
     }
-    const bookModel = mongoose.model('Book', Book.bookSchema )
 
-    if(true) {
-    //   arr = []
-    // bookModel.find({}, (err, data) => 
-    // {data.map(item=>
-    // {arr.push({title: item.title})})
-    // arr.forEach(items => {
-    //   res.json(items)})})
-      res.json(resp)
+
+  try{
+    if(isJSONResp) {
+      arr = []
+    Book.find({}, (err, data) => 
+      {data.map(item=>
+      {arr.push({title: item.title})})
+      res.json(arr)})
+    // res.json(resp)
     } else {
       res.render('books/index', {
       books: books,
