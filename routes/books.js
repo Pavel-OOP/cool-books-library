@@ -78,7 +78,7 @@ router.get("/", async (req, res) => {
     }
     const bookModel = mongoose.model('Book', Book.bookSchema )
 
-    if(isJSONResp) {
+    if(true) {
     //   arr = []
     // bookModel.find({}, (err, data) => 
     // {data.map(item=>
