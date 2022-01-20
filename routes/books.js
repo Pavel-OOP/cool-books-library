@@ -85,6 +85,7 @@ router.get("/", async (req, res) => {
     {arr.push({title: item.title})})
     arr.forEach(items => {
       res.json(items)})})
+      res.json(resp)
     } else {
       res.render('books/index', {
       books: books,
